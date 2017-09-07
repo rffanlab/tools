@@ -9,7 +9,33 @@ import os,sys
 
 class lnmp():
     def __init__(self):
-        pass
+        # lnmp lnmpa lamp
+        self.type = ""
+
+    # 检测是lnmp还是lamp，还是lnmpa
+    def dete_type(self):
+        nginx = False
+        apache = False
+        lines = os.popen("ps aux|grep nginx|grep -v grep").readlines()
+        for x in lines:
+            if "nginx" in x:
+                nginx = True
+        lines2 = os.popen("ps aux|grep httpd|grep -v grep").readlines()
+        for y in lines2:
+            if "httpd" in y:
+                apache = True
+        if not os.path.isdir("/usr/local/nginx"):
+            nginx = False
+        if not os.path.isdir("/usr/local/apache"):
+            apache = False
+        if nginx and not apache:
+            self.type = "lnmp"
+        elif nginx and apache:
+            self.type = "lnmpa"
+        elif not nginx and apache:
+            self.type = "lamp"
+        print(self.type)
+
 
     def start_lnmp(self):
         pass
@@ -55,8 +81,26 @@ class lnmp():
 
 if __name__ == '__main__':
     lnmp = lnmp()
-    arg1 = sys.argv[1]
-    arg2 = sys.argv[2]
+    lnmp.dete_type()
+    args = sys.argv
+    arg1 = ""
+    arg2 = ""
+    if len(args)>1:
+        arg1 = args[1]
+        if len(args)>2:
+            arg2 = args[2]
+    else:
+        print("""
+命令错误，请参照下面命令来使用
+命令使用：
+使用: lnmp {start|stop|reload|restart|kill|status}
+使用: lnmp {nginx|mysql|mariadb|pureftpd|httpd} {start|stop|reload|restart|kill|status}
+使用: lnmp vhost {add|list|del}
+使用: lnmp database {add|list|edit|del}
+使用: lnmp ftp {add|list|edit|del|show}
+使用: lnmp ssl add 
+""")
+        exit()
     if arg1 == "start":
         lnmp.start_lnmp()
     elif arg1 == "stop":
@@ -87,15 +131,14 @@ if __name__ == '__main__':
         pass
     else:
         print("""
+命令错误，请参照下面命令来使用
 命令使用：
-        使用: lnmp {start|stop|reload|restart|kill|status}
-        使用: lnmp {nginx|mysql|mariadb|pureftpd|httpd} {start|stop|reload|restart|kill|status}
-        使用: lnmp vhost {add|list|del}
-        使用: lnmp database {add|list|edit|del}
-        使用: lnmp ftp {add|list|edit|del|show}
-        使用: lnmp ssl add" 
-        
-        
+使用: lnmp {start|stop|reload|restart|kill|status}
+使用: lnmp {nginx|mysql|mariadb|pureftpd|httpd} {start|stop|reload|restart|kill|status}
+使用: lnmp vhost {add|list|del}
+使用: lnmp database {add|list|edit|del}
+使用: lnmp ftp {add|list|edit|del|show}
+使用: lnmp ssl add
         """)
 
 
