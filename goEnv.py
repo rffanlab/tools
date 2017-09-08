@@ -1,15 +1,16 @@
 #encoding:utf8
 #
-import os,platform
+import os,platform,shutil
 
 # 配置区，设置一下配置
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36"
 }
 
-savePath = ""
-
-
+savePath = "."
+gopath ="/home/gopath"
+usergopath = "/home/ugopath"
+profile = "/etc/profile"
 
 
 # 检查Python版本
@@ -99,12 +100,16 @@ if __name__ == '__main__':
     for x in all_links:
         if downtype in x.get_text().lower():
             download_link = x.get("href")
-        print(x)
     print(download_link)
     filename = get_filename_from(download_link)
-    download(download_link,"./"+filename)
-    os.popen("tar zxvf "+filename)
-    print os.path.isdir("go")
+    download(download_link,savePath+"/"+filename)
+    cmd = "tar zxvf "+filename+" -C /usr/local/"
+    print cmd
+    os.popen(cmd)
+    with open(profile,"a") as f:
+        f.write("export GOROOT=/usr/local/go\n")
+        f.write("export GOPATH="+gopath+":"+usergopath+"\n")
+        f.write("export PATH=$PATH:$GOROOT/bin:"+gopath+"/bin\n")
 
 
 
