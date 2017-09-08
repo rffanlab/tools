@@ -12,6 +12,7 @@ request,beautifulsoup4,lxml
 如果python版本低于2.7将会报错，因此建议使用我的脚本安装python2.7，并使用python2.7奔跑。可以使用installpy27.sh 这个安装python27
 
 
+
 # 关于installpy27的介绍
 ### 作用
 * 该脚本用于独立安装python2.7.13到系统，并添加python解析器到系统环境，名字为python27。
