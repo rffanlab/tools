@@ -1,6 +1,6 @@
 #encoding:utf8
-#
-import os,platform,shutil
+# Please keep network good to use following script 请保持网络通畅来使用下面的脚本
+import os,platform,tarfile,pip
 
 # 配置区，设置一下配置
 headers = {
@@ -11,6 +11,7 @@ savePath = "."
 gopath ="/home/gopath"
 usergopath = "/home/ugopath"
 profile = "/etc/profile"
+gorootsavepath = "/usr/local/"
 
 
 # 检查Python版本
@@ -38,27 +39,10 @@ elif osinfo[0] == "64bit":
 
 print(downtype)
 
-
-
-
-# 定义了检查已安装包的方法，用以检测是否安装了某个包，如未安装，则安装它
-#TODO 还没完善
-def check_install_package(package_name):
-    has_package = False
-    piplist = os.popen("pip list --format=columns").readlines()
-    for x in piplist:
-        if package_name in x:
-            has_package = True
-            break
-    if not has_package:
-        print("Package:"+package_name+" not Installed.Installing it now")
-        os.popen("pip install "+package_name)
-    print("Package "+package_name+" Installed")
-
-# 安装了需要的包，包括了requests,beautifulsoup4,lxml
-check_install_package("requests")
-check_install_package("beautifulsoup4")
-check_install_package("lxml")
+# 安装需要的python 包
+pip.main(["install","--upgrade","requests","--quiet"])
+pip.main(["install","--upgrade","beautifulsoup4","--quiet"])
+pip.main(["install","--upgrade","lxml","--quiet"])
 
 import requests
 from bs4 import BeautifulSoup
@@ -87,12 +71,13 @@ def get_filename_from(url):
     strs = url.split("/")
     return strs[len(strs)-1]
 
+def extract(filepath,tofilepath="./"):
+    with tarfile.open(filepath,"r:gz") as tar:
+        tar.extractall(tofilepath)
 
 
 if __name__ == '__main__':
     download_link = ""
-    if "" in osinfo[1].lower():
-        pass
     r = get_remote_content("https://golang.org/dl/")
     soup = BeautifulSoup(r,"lxml")
     latest_version = soup.find("div","toggleVisible")
@@ -103,14 +88,13 @@ if __name__ == '__main__':
     print(download_link)
     filename = get_filename_from(download_link)
     download(download_link,savePath+"/"+filename)
-    cmd = "tar zxvf "+filename+" -C /usr/local/"
-    print cmd
-    os.popen(cmd)
+    extract(savePath+"/"+filename,gorootsavepath)
     with open(profile,"a") as f:
         f.write("export GOROOT=/usr/local/go\n")
         f.write("export GOPATH="+gopath+":"+usergopath+"\n")
         f.write("export PATH=$PATH:$GOROOT/bin:"+gopath+"/bin\n")
-
+    os.popen("source /etc/profile")
+#
 
 
 
