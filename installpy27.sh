@@ -10,7 +10,7 @@ cd Python-2.7.13
 ./configure --prefix=/usr/local/python27
 make && make install
 ln -s /usr/local/python27/bin/python /usr/bin/python27
-# 这个脚本是放在我自己的网址上的，如果网址失效了，请自行去网络上寻找
+# 这个脚本是放在我自己的网址上的，如果网址失效了，请自行去网络上寻找，这个工具包的git应该会有备份
 wget -c https://downa.win/python/get-pip.py
 /usr/local/python27/bin/python get-pip.py
 ln -s /usr/local/python27/bin/pip /usr/bin/pip27
