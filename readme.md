@@ -28,7 +28,7 @@ request,beautifulsoup4,lxml
 
 
 
-# 关于rlnmp
+# 关于rlnmp（未完成）
 关于这个工具的叙述：写这个工具的原因是因为，军哥的lnmp在添加SSL之后，如果使用的lnmpa形式的话
 将会出现一个问题，如果你访问的是https，你前端nginx加载的资源却会变成http。这是因为nginx和apache之间的数据通信是
 http的，所以才会有这个包。

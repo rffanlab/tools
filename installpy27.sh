@@ -1,6 +1,8 @@
 #!/bin/bash
 # 如果你觉得下载国外python官网的网址有点慢，你可以下载自己觉得快的网址
+#yum 安装制定安装包，如果以后更新后使用dnf，可能需要更新该脚本，不过CentOS7 目前还是使用的yum
 yum install -y wget openssl* gcc*
+# 下载安装包，如果有更新，请去python官网更新下载网址
 wget -c https://www.python.org/ftp/python/2.7.13/Python-2.7.13.tgz
 tar zxvf Python-2.7.13.tgz
 cd Python-2.7.13
