@@ -17,12 +17,13 @@ request,beautifulsoup4,lxml
 ### 作用
 * 该脚本用于独立安装python2.7.13到系统，并添加python解析器到系统环境，名字为python27。
 * 为python2.7安装pip并添加到系统环境名字为pip27
+
 ### 支持系统
 目前仅仅写了centos系列（debian系列的小伙伴，请自行修改相关脚本）
 ### 测试
 * CentOS 7   PASS
 * CentOS 6   PASS
-* CentOS 5   Untested  
+* CentOS 5   Untested
 ### 报错
 目前测试中还未出现报错，如果有报错，请及时告知
 
