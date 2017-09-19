@@ -26,7 +26,7 @@ request,beautifulsoup4,lxml
 * CentOS 5   Untested
 
 ### 报错
-目前测试中还未出现报错，如果有报错，请及时告知
+目前脚本运行之后需要自行运行"source /etc/profile" 来让环境变量生效。目前测试中还未出现报错，如果有报错，请及时告知
 
 
 
