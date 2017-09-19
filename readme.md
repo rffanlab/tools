@@ -23,7 +23,7 @@ request,beautifulsoup4,lxml
 ### 测试
 * CentOS 7   PASS
 * CentOS 6   PASS
-* CentOS 5   Untested  
+* CentOS 5   Untested
 
 ### 报错
 目前测试中还未出现报错，如果有报错，请及时告知

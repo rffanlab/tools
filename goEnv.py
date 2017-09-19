@@ -96,6 +96,8 @@ if __name__ == '__main__':
         f.write("export GOROOT=/usr/local/go\n")
         f.write("export GOPATH="+gopath+":"+usergopath+"\n")
         f.write("export PATH=$PATH:$GOROOT/bin:"+gopath+"/bin\n")
+    os.popen("mkdir "+gopath)
+    os.popen("mkdir "+usergopath)
     os.popen("source /etc/profile")
 #
 
