@@ -1,6 +1,12 @@
 #encoding:utf8
 # Please keep network good to use following script 请保持网络通畅来使用下面的脚本
-import os,platform,tarfile,pip
+import os,platform,tarfile
+
+# 为防止新装系统没有安装pip 我们这里用yum来安装easy_install 然后通过easy_install pip 来安装pip
+os.popen("yum install -y python-setuptools")
+os.popen("easy_install pip")
+
+import pip
 
 # 配置区，设置一下配置
 headers = {
