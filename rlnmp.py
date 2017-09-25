@@ -68,6 +68,13 @@ class lnmp():
         pass
 
     def vhost_lnmp(self):
+        domain = raw_input("请输入你的域名")
+        addtional_domain = raw_input("请输入你的附加域名，没有请回车跳过")
+        print("请输入目录默认目录为:/home/www/"+domain)
+        directory = raw_input("请输入：")
+        allowaccesslog = raw_input("要开启日志访问？默认不开启(Y/N)")
+        email = raw_input("请输入email用于apache配置：")
+        ssl_option = raw_input("是否添加SSL(Y/N)")
         pass
 
     def db_lnmp(self):

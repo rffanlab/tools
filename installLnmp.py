@@ -4,6 +4,9 @@
 # 军哥的包的SSL存在着在lnmpa的时候饭袋出现问题。
 
 
+def SetupBackupMySQLAccount():
+    pass
+
 
 class InstallLNMP():
     def __init__(self):
@@ -20,6 +23,8 @@ class InstallLNMPA():
 class InstallLAMP():
     def __init__(self):
         pass
+
+
 
 
 
