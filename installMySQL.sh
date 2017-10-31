@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 #install dependence packages
-yum install -y patch cmake make gcc gcc-c++ gcc-g77 flex bison file libtool libtool-libs autoconf kernel-devel libjpeg libjpeg-devel libpng libpng-devel libpng10 libpng10-devel gd gd-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glib2 glib2-devel bzip2 bzip2-devel libevent libevent-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel libidn libidn-devel openssl openssl-devel vim-minimal nano fonts-chinese gettext gettext-devel ncurses-devel gmp-devel pspell-devel unzip libcap
+yum install -y wget patch cmake make gcc gcc-c++ gcc-g77 flex bison file libtool libtool-libs autoconf kernel-devel libjpeg libjpeg-devel libpng libpng-devel libpng10 libpng10-devel gd gd-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glib2 glib2-devel bzip2 bzip2-devel libevent libevent-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel libidn libidn-devel openssl openssl-devel vim-minimal nano fonts-chinese gettext gettext-devel ncurses-devel gmp-devel pspell-devel unzip libcap
+
+
+wget -c https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.38.tar.gz
 
 echo "============================mysql install=================================="
 read -p "Input your mysql root password:" mysqlrootpwd
 cur_dir=`pwd`
 cd $cur_dir
-tar zxvf mysql-5.6.21.tar.gz
+tar zxvf mysql-5.6.38.tar.gz
 yum install -y cmake
-cd $cur_dir/mysql-5.6.21/
+cd $cur_dir/mysql-5.6.38/
 cmake -DCMAKE_INSTALL_PREFIX=/usr/local/mysql/ -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DEXTRA_CHARSETS=all -DENABLED_PROFILING=ON -DWITH_READLINE=1 -DWITH_DEBUG=0 -DWITH_INNOBASE_STORAGE_ENGINE=1 -DMYSQL_DATADIR=/home/mysql/data/ -DMYSQL_UNIX_ADDR=/tmp/mysql.sock -DMYSQL_TCP_PORT=3306 -DENABLED_LOCAL_INFILE=1
 make && make install
 cd ../
