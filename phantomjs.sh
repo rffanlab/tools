@@ -8,4 +8,4 @@ tar xjf phantomjs-2.1.1-linux-x86_64.tar.bz2 -C /usr/local
 mv /usr/local/phantomjs-2.1.1-linux-x86_64 /usr/local/phantomjs
 echo "export PHANTOMJS=/usr/local/phantomjs">>/etc/profile
 echo "export PATH=\$PATH:\$PHANTOMJS/bin">>/etc/profile
-
+source /etc/profile
