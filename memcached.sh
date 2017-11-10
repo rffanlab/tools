@@ -4,7 +4,7 @@ MEMVERSION=1.5.3
 yum install -y wget gcc* openssl openssl-devel make cmake
 wget -c http://www.memcached.org/files/memcached-$MEMVERSION.tar.gz
 tar zxvf memcached-$MEMVERSION.tar.gz
-cd $MEMVERSION
+cd memcached-$MEMVERSION
 ./configure prefix=/usr/local/memcached
 make && make test && make install
 
