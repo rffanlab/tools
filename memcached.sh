@@ -12,7 +12,7 @@ groupadd memcached
 useradd -s /sbin/nologin -g memcached memcached
 chown -R memcached:memcached /usr/local/memcached
 
-cat >>/etc/systemd/system/memcached.service <<EOF
+cat >/etc/systemd/system/memcached.service <<EOF
 [Unit]
 Description=Memcached Deamon Service
 
