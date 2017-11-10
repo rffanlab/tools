@@ -17,8 +17,12 @@ cat >>/etc/systemd/system/memcached.service <<EOF
 Description=Memcached Deamon Service
 
 [Service]
-ExecStart=/usr/local/memcached/bin/memcached -
-
+ExecStart=/usr/local/memcached/bin/memcached -d -m 512 -u memcached -p 41214
+ExecStop=/usr/local/memcached/bin/memcached -d stop
+ExecReload=/usr/local/memcached/bin/memcached -d restart
+KillSignal=SIGQUIT
+Type=notify
+NotifyAccess=all
 
 [Install]
 WantedBy=multi-user.target
