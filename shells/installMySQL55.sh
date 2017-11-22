@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 #install dependence packages
-yum install -y wget patch cmake make gcc gcc-c++ gcc-g77 flex bison file libtool libtool-libs autoconf kernel-devel libjpeg libjpeg-devel libpng libpng-devel libpng10 libpng10-devel gd gd-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glib2 glib2-devel bzip2 bzip2-devel libevent libevent-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel libidn libidn-devel openssl openssl-devel vim-minimal nano fonts-chinese gettext gettext-devel ncurses-devel gmp-devel pspell-devel unzip libcap
+yum install -y wget patch cmake make gcc gcc-c++ gcc-g77 flex bison* file libtool libtool-libs autoconf kernel-devel libjpeg libjpeg-devel libpng libpng-devel libpng10 libpng10-devel gd gd-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glib2 glib2-devel bzip2 bzip2-devel libevent libevent-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel libidn libidn-devel openssl openssl-devel vim-minimal nano fonts-chinese gettext gettext-devel ncurses-devel gmp-devel pspell-devel unzip libcap
 
+mysqlbv=5.5
 mysqlv=5.5.58
-wget -c https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-$mysqlv.tar.gz
+wget -c https://dev.mysql.com/get/Downloads/MySQL-$mysqlbv/mysql-$mysqlv.tar.gz
 
 echo "============================mysql install=================================="
 read -p "Input your mysql root password:" mysqlrootpwd
