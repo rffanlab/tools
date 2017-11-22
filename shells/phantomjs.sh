@@ -2,6 +2,7 @@
 # this script is written for setting up phantomjs env for webdriver to run.
 # written by Rffanlab
 # Any question please visit https://ddns.togit.cc:7777/rffanlab/tools to raise an issue
+# Usage: sh phantomjs.sh && source /etc/profile
 wget -c https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
 # wget -c https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-i686.tar.bz2
 tar xjf phantomjs-2.1.1-linux-x86_64.tar.bz2 -C /usr/local
