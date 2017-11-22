@@ -16,6 +16,9 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr/local/mysql/ -DDEFAULT_CHARSET=utf8 -DDEFAULT_
 make && make install
 cd ../
 
+rm -rf /etc/my.cnf
+
+
 groupadd mysql
 useradd -s /sbin/nologin -M -g mysql mysql
 mkdir -p /home/mysql/data/
