@@ -110,7 +110,7 @@ func_vhost()
 {
     case "$1" in
     [aA][dD][dD])
-
+        add_vhost
         ;;
     [dD][eE][lL])
 
