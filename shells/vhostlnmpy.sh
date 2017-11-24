@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 action1=$1
-action2=$1
+action2=$2
 
 
 nginxconfpath=/etc/nginx/conf.d

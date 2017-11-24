@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# only could run under centos
+# only could run under centos7
 yum install python-setuptools
 easy_install pip
 pip install supervisor
