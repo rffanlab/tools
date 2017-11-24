@@ -3,12 +3,12 @@ action1=$1
 action2=$2
 
 
-nginxconfpath=/etc/nginx/conf.d
-nginxgid=nginx
-
-if [ ! -f "/etc/nginx" ]; then
+if [ ! -f "/etc/nginx/nginx.conf" ]; then
     nginxconfpath=/usr/local/nginx/conf/vhost
     nginxgid=www
+else
+    nginxconfpath=/etc/nginx/conf.d
+    nginxgid=nginx
 fi
 
 
@@ -101,7 +101,7 @@ autorestart=true
 stdout_logfile=${pythonpath}/uwsg_supervisor.log
 EOF
 
-supervicorctl reload
+supervisorctl reload
 
 }
 
