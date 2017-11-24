@@ -14,7 +14,7 @@ fi
 
 add_vhost()
 {
-    read -p "Please input domain (example:lnmpy.org):"domain
+    read -p "Please input domain (example:lnmpy.org):" domain
     if [ "${domain}" = "" ];then
         echo "Please Enter a domain.It should not be empty"
         exit 1
