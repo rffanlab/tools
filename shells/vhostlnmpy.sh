@@ -108,6 +108,7 @@ supervicorctl reload
 
 func_vhost()
 {
+    echo $1
     case "$1" in
     [aA][dD][dD])
         echo "进去了"
