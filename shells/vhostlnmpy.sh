@@ -42,7 +42,7 @@ add_vhost()
     pythonpath="/home/www/${domain}py"
     echo "Please input the python path"
     echo "Default is:/home/www/${domain}py"
-    read -p "Python path is:"pythonpath
+    read -p "Python path is:" pythonpath
     if [ "${pythonpath}" = "" ]; then
         pythonpath="/home/www/${domain}py"
     fi
