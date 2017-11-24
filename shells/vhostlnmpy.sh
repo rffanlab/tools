@@ -110,6 +110,7 @@ func_vhost()
 {
     case "$1" in
     [aA][dD][dD])
+        echo "进去了"
         add_vhost
         ;;
     [dD][eE][lL])
