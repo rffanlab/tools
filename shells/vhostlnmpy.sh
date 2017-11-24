@@ -7,8 +7,8 @@ nginxconfpath=/etc/nginx/conf.d
 nginxgid=nginx
 
 if [ ! -f "/etc/nginx" ]; then
-    $nginxconfpath=/usr/local/nginx/conf/vhost
-    $nginxgid=www
+    nginxconfpath=/usr/local/nginx/conf/vhost
+    nginxgid=www
 fi
 
 
