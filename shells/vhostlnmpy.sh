@@ -49,19 +49,21 @@ add_vhost()
     # TODO 写wsgi配置
     mkdir -p ${vhostdir}
     mkdir -p ${pythonpath}/env
+
+    virtualenv ${pythonpath}/env
+    source ${pythonpath}/env/bin/activate
+    pip install uwsgi
     cat >${pythonpath}/run.ini<<EOF
 [uwsgi]
 module = wsgi
 master = true
 processes = 5
 socket = ${domain}.sock
-chmod-socket = 600
+chmod-socket = 660
 git = ${nginxgid}
 py-autoreload = 1
 EOF
-    virtualenv ${pythonpath}/env
-    source ${pythonpath}/env/bin/activate
-    pip install uwsgi
+
 
 
 
@@ -69,6 +71,7 @@ EOF
     # TODO 写Nginx配置
     cat >${nginxconfpath}/${domain}.conf<<EOF
 upstream ${domain} {
+    ip_hash;
     server unix:${pythonpath}/${domain}.sock;
 }
 server
@@ -77,6 +80,11 @@ server
     server_name ${domain} ${additional_domainname};
     index index.html index.htm index.php default.html default.htm default.php;
     root ${vhostdir};
+
+    location /static/ {
+        root ${pythonpath};
+
+    }
 
     location / {
         include uwsgi_params;
@@ -94,7 +102,7 @@ nginx -s reload
     # TODO 写supervisor配置
     cat >/etc/supervisor/conf.d/${domain}.ini<<EOF
 [program:${domain}]
-command=${pythonpath}/env/uwsgi ${pythonpath}/run.ini
+command=${pythonpath}/env/bin/uwsgi ${pythonpath}/run.ini
 directory=${pythonpath}
 autostart=true
 autorestart=true
