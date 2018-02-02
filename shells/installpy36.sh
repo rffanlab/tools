@@ -7,7 +7,7 @@ wget -c https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz
 tar zxvf Python-3.6.4.tgz
 cd Python-3.6.4
 # 之所以不开启优化，是怕出问题，如果你不怕，可以自己添加
-./configure --prefix=/usr/local/python36
+./configure --prefix=/usr/local/python36 --enable-optimizations
 make && make install
 ln -s /usr/local/python36/bin/python /usr/bin/python3
 ln -s /usr/local/python36/bin/pip3 /usr/bin/pip3
