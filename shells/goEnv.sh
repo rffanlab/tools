@@ -2,8 +2,8 @@
 # this script only fit centos
 #
 yum install -y wget
-wget -c https://dl.google.com/go/go1.9.4.linux-amd64.tar.gz
-tar zxvf go1.9.4.linux-amd64.tar.gz
+wget -c https://dl.google.com/go/go1.10.linux-amd64.tar.gz
+tar zxvf go1.10.linux-amd64.tar.gz
 mv go /usr/local/
 mkdir -p /home/go/gopath
 mkdir -p /home/go/ugopath
