@@ -9,4 +9,4 @@ echo "请输入邮箱"
 read email
 echo "请输入网站存储路径"
 read path
-certbot certonly --email ${email} --agree-tos --webroot -w ${path} -d ${domain} -d ${additionalDomain}
+/usr/bin/certbot certonly --email ${email} --agree-tos --webroot -w ${path} -d ${domain} -d ${additionalDomain}

@@ -5,6 +5,9 @@
 shell 里放的shell脚本 Python里放的是Python脚本。shell脚本都是实际在用的。   
 Python脚本有些部分是成品，部分是半成品。
 
+
+
+
 # 关于goEnv的介绍
 ### 作用
 该脚本是用来在CentOS下部署go环境用的.
