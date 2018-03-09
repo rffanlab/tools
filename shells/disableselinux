@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+echo "SELINUX=disabled" > /etc/sysconfig/selinux
+setenforce 0
