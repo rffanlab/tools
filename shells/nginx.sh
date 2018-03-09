@@ -11,5 +11,6 @@ baseurl=http://nginx.org/packages/centos/$osrelease/\$basearch/
 gpgcheck=0
 enabled=1
 EOF
-
 yum install -y nginx
+echo "SELINUX=disabled" > /etc/sysconfig/selinux
+setenforce 0
