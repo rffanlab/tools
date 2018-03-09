@@ -16,7 +16,7 @@ count=$(crontab -l | grep '/usr/bin/certbot'| wc -l)
 if [[ "${count}" = "0" ]] ;then 
 	# 如果你的使用ssl的并不是nginx web服务器，请将下面这一句引号里的/usr/sbin/nginx -s reload 替换成你需要的重载服务器的命令
 	echo "0 3 */7 * * /usr/bin/certbot renew --disable-hook-validation --renew-hook \"/usr/sbin/nginx -s reload\"">> /var/spool/cron/root
-	echo "还没有添加cron" 
+	echo "自动续费cron添加成功" 
 fi
 
 
