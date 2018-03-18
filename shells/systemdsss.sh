@@ -10,8 +10,8 @@ Description=ShadowSocks Server
 [Service]
 Type=forking
 LimitNOFILE=65536
-ExecStart=/usr/local/bin/ssserver -p 10040 -k rffanlab -m rc4-md5 --user nobody -d start
-ExecStop=/usr/local/bin/ssserver -d stop
+ExecStart=/usr/bin/ssserver -p 10040 -k rffanlab -m rc4-md5 --user nobody -d start
+ExecStop=/usr/bin/ssserver -d stop
 Restart=on-abort
 
 [Install]
