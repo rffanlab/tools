@@ -10,7 +10,7 @@ cur_dir=`pwd`
 cd $cur_dir
 tar zxvf mysql-$version.tar.gz
 yum install -y cmake
-cd $cur_dir/$version/
+cd $cur_dir/mysql-$version/
 cmake -DCMAKE_INSTALL_PREFIX=/usr/local/mysql/ -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DEXTRA_CHARSETS=all -DENABLED_PROFILING=ON -DWITH_READLINE=1 -DWITH_DEBUG=0 -DWITH_INNOBASE_STORAGE_ENGINE=1 -DMYSQL_DATADIR=/home/mysql/data/ -DMYSQL_UNIX_ADDR=/tmp/mysql.sock -DMYSQL_TCP_PORT=3306 -DENABLED_LOCAL_INFILE=1
 make && make install
 cd ../
